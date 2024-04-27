@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  my-app:
+    build: .
+    ports:
+      - 8081:8081
+
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_DB: fast_api
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

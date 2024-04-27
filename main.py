@@ -3,6 +3,9 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from command.router_movie import router_movie
 from command.router_session import router_session
+from models.database import Base, engine
+
+#Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title = "Cinema"
